@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.pipeworx-io/statbank-md",
+  "title": "Statbank Md",
+  "description": "National Bureau of Statistics of Moldova (Statbank) PxWeb MCP.",
+  "version": "0.1.0",
+  "websiteUrl": "https://pipeworx.io/packs/statbank-md",
+  "repository": {
+    "url": "https://github.com/pipeworx-io/mcp-statbank-md",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://gateway.pipeworx.io/statbank-md/mcp"
+    }
+  ]
+}
