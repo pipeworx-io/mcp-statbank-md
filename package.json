@@ -1,20 +1,32 @@
 {
   "name": "@pipeworx/mcp-statbank-md",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "National Bureau of Statistics of Moldova (Statbank) PxWeb MCP.",
   "type": "module",
   "main": "src/index.ts",
   "types": "src/index.ts",
+  "bin": {
+    "mcp-statbank-md": "bin/cli.js"
+  },
   "keywords": ["mcp", "mcp-server", "model-context-protocol", "pipeworx", "statbank-md"],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pipeworx-io/mcp-statbank-md"
+    "url": "git+https://github.com/pipeworx-io/mcp-statbank-md.git"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"
   },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "tsx": "^4.19.0"
+  },
   "devDependencies": {
-    "typescript": "^5.7.0"
+    "typescript": "^5.9.3",
+    "@cloudflare/workers-types": "^4.20260405.1"
+  },
+  "pipeworx": {
+    "sourceHash": "v1-a5a0e0655699f404c6dfefba0550e64dccf2a4f23dad6bf43c8c2b3563514f22",
+    "sourceCommit": "00c836ddeaecbdd581dcfb0fb1842efea104006e"
   }
 }
