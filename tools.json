@@ -1,0 +1,52 @@
+[
+  {
+    "name": "subjects",
+    "description": "Navigate the database/subject tree. Root (empty path) lists databases ({dbid}). Drill into a database id to get folders (type \"l\") and tables (type \"t\", \".px\" suffix).",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "Sub-path under /en/ (default empty = root database list). First segment is a database id, e.g. \"20 Populatia si procesele demografice/POP010/POPro\"."
+        }
+      }
+    }
+  },
+  {
+    "name": "table_meta",
+    "description": "Fetch dimension definitions and valid coded values for a Moldova Statbank PxWeb table. Path must end in the '.px' table id (e.g. '20 Populatia si procesele demografice/POP010/POPro/POP010100rcl.px'). Returns dimensions with codes and value lists — use these to build the selection body for query_table.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "e.g. \"20 Populatia si procesele demografice/POP010/POPro/POP010100rcl.px\""
+        }
+      },
+      "required": [
+        "path"
+      ]
+    }
+  },
+  {
+    "name": "query_table",
+    "description": "POST a PxWeb query to a Moldova National Bureau of Statistics (Statbank) table and return observations as json-stat2. body must be {query:[{code, selection:{filter,values}}], response:{format:'json-stat2'}}. PxWeb caps responses at ~10,000 cells — narrow each dimension's values using codes from table_meta.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "Path ending in the \".px\" table id."
+        },
+        "body": {
+          "type": "object",
+          "description": "{query: [{code, selection: {filter, values}}], response: {format: \"json-stat2\"}}"
+        }
+      },
+      "required": [
+        "path",
+        "body"
+      ]
+    }
+  }
+]
